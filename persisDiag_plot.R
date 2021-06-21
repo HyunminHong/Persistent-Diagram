@@ -41,7 +41,7 @@ replace_infinity = function(diagram, inf_delta = 0.618) {
     return(diagram)
 }
 
-display_diagram = function(diagram, tau = NaN, inf_delta = 0.618, sp = 0.1) {
+display_diagram = function(diagram, tau = NaN, inf_delta = 0.618, sp = 0.1, alpha = 0) {
     # convert infinity values to plotable values
     diagram = replace_infinity(diagram, inf_delta)
     
@@ -69,10 +69,10 @@ display_diagram = function(diagram, tau = NaN, inf_delta = 0.618, sp = 0.1) {
             border = adjustcolor("black", alpha.f = 0.5))
     
     if (!is.nan(tau)) {
-        clip(x1 = tau, x2 = 10*max(diagram), y1 = 0, y2 = 10*max(diagram) - tau)
+        clip(x1 = tau, x2 = max(diagram[,1]), y1 = 0, y2 = max_death + step_size + alpha)
         abline(a = -tau, b = 1, lty = 8, lwd = 1)
         clip(x1 = min(diagram)*10, x2 = max(diagram), y1 = min(diagram)*10, y2 = 0)
         abline(v = tau, lty = 8, lwd = 1)
     }
 }
-display_diagram(diagram, tau = 1.4)
+# display_diagram(diagram, tau = 1.4, alpha = 0.2) # alpha adjusts the range of the diagonal line
