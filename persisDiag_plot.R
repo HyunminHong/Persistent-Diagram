@@ -54,9 +54,13 @@ display_diagram = function(diagram, tau = NaN, inf_delta = 0.618, sp = 0.1, alph
     # increasing sp yields wider plot and vice versa
     step_size = abs((min_death - max_birth) * sp)
     
+    # range max and min
+    Rmax = max(max_birth + step_size, max_death + step_size)
+    Rmin = min(min_birth - step_size, min_death)
+    
     plot(diagram[,1], diagram[,2], pch = 19, cex = 0.6, col = "blue",
-         xlim = c(min_birth - step_size, max_birth + step_size), 
-         ylim = c(min_death, max_death + step_size),
+         xlim = c(Rmin, Rmax), 
+         ylim = c(Rmin, Rmax),
          xlab = "birth level", ylab = "death level", 
          main = "Persistence Diagram")
     
@@ -69,7 +73,7 @@ display_diagram = function(diagram, tau = NaN, inf_delta = 0.618, sp = 0.1, alph
             border = adjustcolor("black", alpha.f = 0.5))
     
     if (!is.nan(tau)) {
-        clip(x1 = tau, x2 = max(diagram[,1]), y1 = 0, y2 = max_death + step_size + alpha)
+        clip(x1 = tau, x2 = Rmax + alpha, y1 = 0, y2 = Rmax + alpha)
         abline(a = -tau, b = 1, lty = 8, lwd = 1)
         clip(x1 = min(diagram)*10, x2 = max(diagram), y1 = min(diagram)*10, y2 = 0)
         abline(v = tau, lty = 8, lwd = 1)
