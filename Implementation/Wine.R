@@ -46,10 +46,12 @@ palette_emc = palette_emc[wine_EMC$labels] # assign each point to the color wher
 plot(wine[,2:3], pch = 16, cex = 0.5, col = palette_emc, 
      xlab = "", ylab = "", xaxt="n", yaxt="n", main = "2d Projection Wine Quality Clustering (EMC)") # plot clusters (2d projection)
 
+# 2d projection by PCA
 pca_emc = prcomp(wine)
 
 autoplot(pca_emc, colour = palette_emc)
 
+# connectivity plot
 palette <- rainbow(length(unique(ground_truth)))
 palette[1] <- "blue"
 palette[2] <- "lightskyblue"
