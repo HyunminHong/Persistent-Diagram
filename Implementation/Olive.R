@@ -38,13 +38,15 @@ legend("topright", expression((n*log(n)/20)^{frac(d,d+6)}), col="purple", lwd=8,
 n_emc <- 7 # the number of clusters
 palette_emc <- rainbow(n_emc) # generate n distinct colors to plot the clusters
 palette_emc = palette_emc[olive_EMC$labels] # assign each point to the color where colors represent the clusters
-pca_emc = prcomp(olive)
-
-autoplot(pca_emc, colour = palette_emc)
 
 plot(olive[,1:2], pch = 16, cex = 0.8, col = palette_emc, 
      xlab = "", ylab = "", xaxt="n", yaxt="n", main = "2d Projection Olive Oil Clustering (EMC)") # plot clusters (2d projection)
 
+# 2d projection can be done by PCA
+pca_emc = prcomp(olive)
+autoplot(pca_emc, colour = palette_emc)
+
+# 3d projection
 scatterplot3d(olive[,1:3], pch = 16, type = "p",
               cex.symbols = 0.8, color = palette_emc,
               xlab = "X", ylab = "Y", zlab = "Z") # plot clusters 
