@@ -3,6 +3,10 @@
 - Moreover, the EMC algorithm can be found in [here](https://github.com/yenchic/EMC);
 - These two clustering schemes are implemented into four different dataset given in the following reference:
 - Paper reference: Yen-Chi Chen, Christopher R. Genovese, and Larry Wasserman. "[A comprehensive approach to mode clustering](https://projecteuclid.org/euclid.ejs/1455715961)." Electronic Journal of Statistics 10.1 (2016): 210-241.
+- For more information of ToMATo, have a look at:
+- Paper reference: Chazal, Frédéric, et al. "[Persistence-Based Clustering in Riemannian Manifolds](https://hal.inria.fr/inria-00389390/document)." Journal of the ACM (JACM) 60.6 (2013): 1-38.
+
+
 
 ![persis_spiral](https://user-images.githubusercontent.com/52386896/120672757-e0c1d200-c492-11eb-9a98-9c6586f1df86.png)
 ![spiral_2d](https://user-images.githubusercontent.com/52386896/120805818-7e2a0e00-c546-11eb-91e3-377fe63861c8.jpeg)
